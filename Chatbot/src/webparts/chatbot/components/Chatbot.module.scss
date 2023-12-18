@@ -107,6 +107,7 @@ div[role="form"] {
     height: calc(100% - 50px)!important;
     width: 100%!important;
     bottom: 50vh;
+    right: 5px;
     overflow: hidden;
 }
 
@@ -728,6 +729,7 @@ a.bot-trigger.open-popup-link.button {
   z-index: 99;
   border-radius: 5px 5px 0 0;
   top: 62px;
+  right: 5px;
   max-width: 395px;
 }
 
@@ -741,11 +743,13 @@ a.bot-trigger.open-popup-link.button {
     float: left;
     width: auto;
     text-align: center;
-    padding: 4px 8px 0 10px
+    padding: 4px 8px 0 10px;
+    right: 0px;
 }
 
 .header_image {
-    width: 30px
+    width: 30px;
+    right: 0px;
 }
 
 .header_title_container {
@@ -762,7 +766,7 @@ a.bot-trigger.open-popup-link.button {
     flex-direction: row;
     align-items: center;
     height: 60px;
-    padding: 10px 25px;
+    padding: 10px 20px;
     border-radius: 50px 50px 0 0;
     position: fixed;
     bottom: 70px;

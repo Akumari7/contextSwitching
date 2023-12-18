@@ -24,11 +24,27 @@ export default class ChatbotWebpart extends React.Component<IChatbotProps, { che
       hideUploadButton: true
     };
 
-    const theURL = "https://powerva.microsoft.com/api/botmanagement/v1/directline/directlinetoken?botId=" + this.props.botid;
+    const theURL = "https://" + this.props.botid + ".environment.api.powerplatform.com/powervirtualagents/botsbyschema/cr943_poc1/directline/token?api-version=2022-03-01-preview";
+
+    let environmentEndPoint = theURL.slice(0, theURL.indexOf('/powervirtualagents'));
+    let apiVersion = theURL.slice(theURL.indexOf('api-version')).split('=')[1];
+    let regionalChannelSettingsURL = `${environmentEndPoint}/powervirtualagents/regionalchannelsettings?api-version=${apiVersion}`;
+    let directline : any;
+
+    fetch(regionalChannelSettingsURL)
+
+      .then((response) => {
+        return response.json();
+      })
+
+      .then((data) => {
+        directline = data.channelUrlsById.directline;
+      })
+      .catch(err => console.error("An error occurred: " + err));
 
     const store = (window as any).WebChat.createStore(
       {},
-      ({ dispatch } : any) => ({next} : any) => ({ action } : any) => {
+      ({ dispatch } : any) => (next : any) => (action : any) => {
         if (action.type === "DIRECT_LINE/CONNECT_FULFILLED") {
           dispatch({
             meta: {
@@ -57,6 +73,7 @@ export default class ChatbotWebpart extends React.Component<IChatbotProps, { che
         (window as any).WebChat.renderWebChat(
           {
             directLine: (window as any).WebChat.createDirectLine({
+              domain: `${directline}v3/directline`,
               token: conversationInfo.token,
             }),
             store: store,
