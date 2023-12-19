@@ -104,7 +104,7 @@ div[role="form"] {
 
 .webchat {
     position: fixed;
-    height: calc(100% - 50px)!important;
+    height: calc(90% - 50px)!important;
     width: 100%!important;
     bottom: 50vh;
     right: 5px;
@@ -759,6 +759,7 @@ a.bot-trigger.open-popup-link.button {
 .close {
     float: right; 
     padding: 5px 10px 0 0;
+    cursor: pointer;
 }
 
 .botimage_container {
@@ -811,7 +812,7 @@ div[role=form] {
 
 .webchat {
   position: fixed;
-  height: calc(100% - 140px);
+  height: calc(80% - 140px);
   width: 585px!important;
   top: 100px;
   z-index: 90000;

@@ -184,7 +184,7 @@ export default class ChatbotWebpart extends React.Component<IChatbotProps, { che
           : (
             <div className={styles.botimage_container}>
               <div className={styles.chatbot_image}>
-                <img src={this.props.botimage} style={{ maxHeight: 150 }} onClick={() => { this.setState({ checked: !this.state.checked }) }} />
+                <img src={this.props.botimage} style={{ maxHeight: 80 }} onClick={() => { this.setState({ checked: !this.state.checked }) }} />
               </div>
             </div>)
         }
