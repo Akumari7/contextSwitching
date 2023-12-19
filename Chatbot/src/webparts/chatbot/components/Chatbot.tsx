@@ -26,10 +26,10 @@ export default class ChatbotWebpart extends React.Component<IChatbotProps, { che
 
     const theURL = `https://33c73de812e242e89d253734721bf6.16.environment.api.powerplatform.com/powervirtualagents/botsbyschema/${this.props.botid}/directline/token?api-version=2022-03-01-preview`;
 
-    let environmentEndPoint = theURL.slice(0, theURL.indexOf('/powervirtualagents'));
-    let apiVersion = theURL.slice(theURL.indexOf('api-version')).split('=')[1];
-    let regionalChannelSettingsURL = `${environmentEndPoint}/powervirtualagents/regionalchannelsettings?api-version=${apiVersion}`;
-    let directline : any;
+    const environmentEndPoint = theURL.slice(0, theURL.indexOf('/powervirtualagents'));
+    const apiVersion = theURL.slice(theURL.indexOf('api-version')).split('=')[1];
+    const regionalChannelSettingsURL = `${environmentEndPoint}/powervirtualagents/regionalchannelsettings?api-version=${apiVersion}`;
+    let directline : string;
 
     fetch(regionalChannelSettingsURL)
 
@@ -179,7 +179,7 @@ export default class ChatbotWebpart extends React.Component<IChatbotProps, { che
                     </div>
                   </div>
                 </div>
-                <div className={styles.webchat} id="webchat" role="main"></div>
+                <div className={styles.webchat} id="webchat" role="main"/>
               </div></div>)
           : (
             <div className={styles.botimage_container}>
