@@ -13,7 +13,7 @@ import Chatbot from './components/Chatbot';
 import { IChatbotProps } from './components/IChatbotProps';
 
 export interface IChatbotWebPartProps {
-  botid: string;
+  botSchemaName: string;
   botname: string;
   botimage: string;
   botlogo: string;
@@ -25,7 +25,7 @@ export default class ChatbotWebPart extends BaseClientSideWebPart<IChatbotWebPar
     const element: React.ReactElement<IChatbotProps> = React.createElement(
       Chatbot,
       {
-        botid: this.properties.botid,
+        botSchemaName: this.properties.botSchemaName,
         botname: this.properties.botname,
         botimage: this.properties.botimage,
         botlogo: this.properties.botlogo,
@@ -106,7 +106,7 @@ export default class ChatbotWebPart extends BaseClientSideWebPart<IChatbotWebPar
             {
               groupName: "Bot Settings",
               groupFields: [
-                PropertyPaneTextField('botid', {
+                PropertyPaneTextField('botSchemaName', {
                   label: "BOT ID"
                 }),
                 PropertyPaneTextField('botname', {

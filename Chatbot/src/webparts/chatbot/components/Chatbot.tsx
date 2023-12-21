@@ -3,6 +3,7 @@ import styles from './Chatbot.module.scss';
 import { IChatbotProps } from './IChatbotProps';
 // import { escape } from '@microsoft/sp-lodash-subset';
 import "../utilities/webchat.js";
+// import * as AdaptiveCards from "adaptivecards"; 
 // import { SPServices } from './services/Services';
 // import { IServices } from './services/IServices';
 
@@ -24,7 +25,7 @@ export default class ChatbotWebpart extends React.Component<IChatbotProps, { che
       hideUploadButton: true
     };
 
-    const theURL = `https://33c73de812e242e89d253734721bf6.16.environment.api.powerplatform.com/powervirtualagents/botsbyschema/${this.props.botid}/directline/token?api-version=2022-03-01-preview`;
+    const theURL = `https://33c73de812e242e89d253734721bf6.16.environment.api.powerplatform.com/powervirtualagents/botsbyschema/${this.props.botSchemaName}/directline/token?api-version=2022-03-01-preview`;
 
     const environmentEndPoint = theURL.slice(0, theURL.indexOf('/powervirtualagents'));
     const apiVersion = theURL.slice(theURL.indexOf('api-version')).split('=')[1];
@@ -63,6 +64,7 @@ export default class ChatbotWebpart extends React.Component<IChatbotProps, { che
             },
             type: "DIRECT_LINE/POST_ACTIVITY",
           });
+          action = (window as any).WebChat.processIncomingActivityWithAdaptiveCards(action);
         }
         return next(action);
       }
@@ -173,7 +175,10 @@ export default class ChatbotWebpart extends React.Component<IChatbotProps, { che
                     </div>
                     <div className={styles.header_title_container}>
                       <div className={styles.header_title}>
+                        <div className={styles.header_content}>
                         <span className={styles.title_text}>{this.props.botname}</span>
+                        <span className={styles.title_subtext}>Sales and Commercial Digital Assistant</span>
+                        </div>
                         <span className={styles.close} onClick={() => { this.setState({ checked: !this.state.checked }) }}>x</span>
                       </div>
                     </div>

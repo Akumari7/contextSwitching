@@ -738,7 +738,7 @@
     }
 
     .header {
-        background: rgb(45, 108, 252);
+        background-image: linear-gradient(to right top, rgb(0, 14, 212) 10%, rgb(0, 51, 102) 125%);
         box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px;
         height: auto;
         width: 585px;
@@ -753,6 +753,7 @@
         min-height: 35px;
         overflow: hidden;
         padding: 0.5% 0;
+        margin: 0.5% 0;
         -webkit-font-smoothing: antialiased;
         font-weight: 100;
         font-size: 1rem;
@@ -808,12 +809,24 @@
         margin-top: 7px;
         display: inline-block
     }
+    span.title_subtext {
+        font-size: 0.7rem;
+        margin-top: 2px;
+        display: inline-block
+    }
 
     .header_title {
         font-family: "Segoe UI", Selawik, Tahoma, Verdana, Arial, sans-serif;
         font-weight: 300;
         color: #f3f2f1;
-        letter-spacing: .005em
+        letter-spacing: .005em;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .header_content {
+        display: flex;
+        flex-direction: column;
     }
 
     .header_subtitle {
@@ -840,7 +853,7 @@
         position: fixed;
         height: calc(80% - 140px);
         width: 585px !important;
-        top: 100px;
+        top: 118px;
         z-index: 90000;
         overflow: hidden;
         max-width: 395px;
