@@ -25,7 +25,11 @@ export default class ChatbotWebpart extends React.Component<IChatbotProps, { che
       hideUploadButton: true
     };
 
-    const theURL = `https://33c73de812e242e89d253734721bf6.16.environment.api.powerplatform.com/powervirtualagents/botsbyschema/${this.props.botSchemaName}/directline/token?api-version=2022-03-01-preview`;
+    // Use for Dev environment
+    //const theURL = `https://33c73de812e242e89d253734721bf6.16.environment.api.powerplatform.com/powervirtualagents/botsbyschema/${this.props.botSchemaName}/directline/token?api-version=2022-03-01-preview`;
+
+    // Use for Production environment
+    const theURL = `https://ad32ee10b356e044988c165a5155f644.environment.api.powerplatform.com/powervirtualagents/botsbyschema/${this.props.botSchemaName}/directline/token?api-version=2022-03-01-preview`;
 
     const environmentEndPoint = theURL.slice(0, theURL.indexOf('/powervirtualagents'));
     const apiVersion = theURL.slice(theURL.indexOf('api-version')).split('=')[1];
@@ -64,7 +68,7 @@ export default class ChatbotWebpart extends React.Component<IChatbotProps, { che
             },
             type: "DIRECT_LINE/POST_ACTIVITY",
           });
-          action = (window as any).WebChat.processIncomingActivityWithAdaptiveCards(action);
+         // action = (window as any).WebChat.processIncomingActivityWithAdaptiveCards(action);
         }
         return next(action);
       }
@@ -177,9 +181,11 @@ export default class ChatbotWebpart extends React.Component<IChatbotProps, { che
                       <div className={styles.header_title}>
                         <div className={styles.header_content}>
                         <span className={styles.title_text}>{this.props.botname}</span>
-                        <span className={styles.title_subtext}>Sales and Commercial Digital Assistant</span>
+                        <span className={styles.title_subtext}>{this.props.botSubtitle}</span>
                         </div>
-                        <span className={styles.close} onClick={() => { this.setState({ checked: !this.state.checked }) }}>x</span>
+                        <div>
+                        <span className={styles.close} onClick={() => { this.setState({ checked: !this.state.checked }) }}>X</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -189,7 +195,7 @@ export default class ChatbotWebpart extends React.Component<IChatbotProps, { che
           : (
             <div className={styles.botimage_container}>
               <div className={styles.chatbot_image}>
-                <img src={this.props.botimage} style={{ maxHeight: 80 }} onClick={() => { this.setState({ checked: !this.state.checked }) }} />
+                <img src={this.props.botimage} style={{ maxHeight: 70 }} onClick={() => { this.setState({ checked: !this.state.checked }) }} />
               </div>
             </div>)
         }

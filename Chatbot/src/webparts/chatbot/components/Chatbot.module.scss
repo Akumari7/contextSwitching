@@ -798,15 +798,15 @@
         padding: 10px 20px;
         border-radius: 50px 50px 0 0;
         position: fixed;
-        bottom: 70px;
-        right: 0;
+        bottom: 10vh;
+        right: 1rem;
         z-index: 999;
         transition: all .5s;
     }
 
     span.title_text {
         font-size: 1rem;
-        margin-top: 7px;
+        //margin-top: 7px;
         display: inline-block
     }
     span.title_subtext {
@@ -827,6 +827,7 @@
     .header_content {
         display: flex;
         flex-direction: column;
+        flex: 1;
     }
 
     .header_subtitle {
@@ -853,7 +854,7 @@
         position: fixed;
         height: calc(80% - 140px);
         width: 585px !important;
-        top: 118px;
+        top: 112px;
         z-index: 90000;
         overflow: hidden;
         max-width: 395px;

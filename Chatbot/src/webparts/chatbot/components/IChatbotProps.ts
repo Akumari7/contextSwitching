@@ -1,5 +1,6 @@
 export interface IChatbotProps {
   botSchemaName: string;
+  botSubtitle: string;
   botname: string;
   botimage: string;
   botlogo: string;

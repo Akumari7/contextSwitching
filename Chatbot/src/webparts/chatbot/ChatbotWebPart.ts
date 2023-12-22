@@ -14,6 +14,7 @@ import { IChatbotProps } from './components/IChatbotProps';
 
 export interface IChatbotWebPartProps {
   botSchemaName: string;
+  botSubtitle: string
   botname: string;
   botimage: string;
   botlogo: string;
@@ -26,6 +27,7 @@ export default class ChatbotWebPart extends BaseClientSideWebPart<IChatbotWebPar
       Chatbot,
       {
         botSchemaName: this.properties.botSchemaName,
+        botSubtitle: this.properties.botSubtitle,
         botname: this.properties.botname,
         botimage: this.properties.botimage,
         botlogo: this.properties.botlogo,
@@ -107,7 +109,10 @@ export default class ChatbotWebPart extends BaseClientSideWebPart<IChatbotWebPar
               groupName: "Bot Settings",
               groupFields: [
                 PropertyPaneTextField('botSchemaName', {
-                  label: "BOT ID"
+                  label: "BOT Schema Name"
+                }),
+                PropertyPaneTextField('botSubtitle', {
+                  label: "BOT Subtitle"
                 }),
                 PropertyPaneTextField('botname', {
                   label: "BOT Name"
