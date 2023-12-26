@@ -6,4 +6,5 @@ export interface IChatbotProps {
   botlogo: string;
   userName: string;
   userEmail: string;
+  environmentId: string;
 }

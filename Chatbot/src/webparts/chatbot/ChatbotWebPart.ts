@@ -18,6 +18,7 @@ export interface IChatbotWebPartProps {
   botname: string;
   botimage: string;
   botlogo: string;
+  environmentId: string;
 }
 
 export default class ChatbotWebPart extends BaseClientSideWebPart<IChatbotWebPartProps> {
@@ -32,7 +33,8 @@ export default class ChatbotWebPart extends BaseClientSideWebPart<IChatbotWebPar
         botimage: this.properties.botimage,
         botlogo: this.properties.botlogo,
         userName: this.context.pageContext.user.displayName,
-        userEmail: this.context.pageContext.user.email
+        userEmail: this.context.pageContext.user.email,
+        environmentId: this.properties.environmentId
       }
     );
 
@@ -122,6 +124,9 @@ export default class ChatbotWebPart extends BaseClientSideWebPart<IChatbotWebPar
                 }),
                 PropertyPaneTextField('botimage', {
                   label: "BOT Image"
+                }),
+                PropertyPaneTextField('environmentId', {
+                  label: "Environment Id"
                 })
               ]
             }

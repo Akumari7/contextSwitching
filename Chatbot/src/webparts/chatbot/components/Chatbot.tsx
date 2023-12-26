@@ -29,7 +29,7 @@ export default class ChatbotWebpart extends React.Component<IChatbotProps, { che
     //const theURL = `https://33c73de812e242e89d253734721bf6.16.environment.api.powerplatform.com/powervirtualagents/botsbyschema/${this.props.botSchemaName}/directline/token?api-version=2022-03-01-preview`;
 
     // Use for Production environment
-    const theURL = `https://ad32ee10b356e044988c165a5155f6.44.environment.api.powerplatform.com/powervirtualagents/botsbyschema/${this.props.botSchemaName}/directline/token?api-version=2022-03-01-preview`;
+    const theURL = `https://${this.props.environmentId}.environment.api.powerplatform.com/powervirtualagents/botsbyschema/${this.props.botSchemaName}/directline/token?api-version=2022-03-01-preview`;
 
     const environmentEndPoint = theURL.slice(0, theURL.indexOf('/powervirtualagents'));
     const apiVersion = theURL.slice(theURL.indexOf('api-version')).split('=')[1];
